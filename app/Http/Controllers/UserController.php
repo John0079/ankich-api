@@ -164,4 +164,15 @@ class UserController extends Controller
 
         return $users;
     }
+
+    function getVolunteerList()
+    {
+        //
+        // return "hhahha----------------";
+        $users = DB::table('users')
+            ->where('level', '>', 1)
+            ->get(["id", "name", "production"]);
+
+        return $users;
+    }
 }

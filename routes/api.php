@@ -56,10 +56,24 @@ Route::get('testcccc', function () {
 
 Route::resource('user', 'UserController')->middleware('auth');
 Route::post('/user/search', 'UserController@search')->middleware('auth');
+Route::post('/user/getVolunteerList', 'UserController@getVolunteerList')->middleware('auth');
 
 
 
-Route::resource('paragraph', 'ParagraphController');
+
+Route::resource('paragraph', 'ParagraphController')->middleware('auth');
+Route::post('/paragraph/search', 'ParagraphController@search')->middleware('auth');
+Route::post('/paragraph/assignTansTask', 'ParagraphController@assignTansTask')->middleware('auth');
+Route::post('/paragraph/cancelTanslator', 'ParagraphController@cancelTanslator')->middleware('auth');
+Route::post('/paragraph/getMyTasks', 'ParagraphController@getMyTasks')->middleware('auth');
+
+// 前台手册页面的路由
+Route::post('/manual/getAnkiManual', 'front\MamualController@getAnkiManual');
+Route::post('/manual/getAndroidManual', 'front\MamualController@getAndroidManual');
+Route::post('/manual/getIosManual', 'front\MamualController@getIosManual');
+
+
+
 Route::resource('cartoon', 'CartoonController');
 Route::resource('article', 'ArticleController');
 Route::resource('deck', 'DeckController');

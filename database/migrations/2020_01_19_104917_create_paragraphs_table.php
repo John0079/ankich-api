@@ -21,7 +21,7 @@ class CreateParagraphsTable extends Migration
             $table->string('content')->comment('段落内容');
             $table->string('content_translation')->comment('段落内容翻译');
             $table->json('translators')->nullable()->comment('翻译者，可能是多个人');
-            $table->string('doc_type')->default("")->comment('指定是哪个文档');
+            $table->string('doc_type')->default("")->comment('指定是哪个文档anki, android, ios');
             $table->smallInteger('complete_status')->default(0)->comment('是否翻译完整');
             $table->timestamps();
         });

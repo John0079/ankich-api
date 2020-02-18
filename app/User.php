@@ -36,5 +36,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'production' => 'json', // 声明json类型
     ];
+
 }
